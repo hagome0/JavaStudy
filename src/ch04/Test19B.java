@@ -24,7 +24,6 @@ public class Test19B {
 
         Stack<Integer> day = new Stack<>();
         for (int i = 0; i < price.length; i++) {
-            System.out.println(day);
             while (!day.empty() && price[i] >= price[day.peek()]){
                 day.pop();
             }
