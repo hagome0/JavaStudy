@@ -1,1 +1,1 @@
-#This repository is a repository for studying Java
+# This repository is a repository for studying Java
