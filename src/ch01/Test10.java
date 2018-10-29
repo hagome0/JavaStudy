@@ -9,8 +9,24 @@ public class Test10 {
     public static void main(String[] args) {
         String s1="999999999999999999999999999999999999999999999";
         String s2="888888888888888888888888888888888888";
-        BigInteger n1=new BigInteger(s1);
-        BigInteger n2=new BigInteger(s2);
-        System.out.println(n1.add(n2));
+        String zero = "";
+        String result = "";
+//        BigInteger n1=new BigInteger(s1);
+//        BigInteger n2=new BigInteger(s2);
+//        System.out.println(n1.add(n2));
+
+        for (int i = 0; i < Math.abs(s1.length() - s2.length()); i++)
+            zero = "0" + zero;
+        zero = s1.length()>s2.length()?zero+s2:zero+s1;
+
+        int carry=0;
+        for (int i = s1.length()-1; i >= 0 ; i--) {
+            int v = s1.charAt(i)-'0' + zero.charAt(i)-'0' + carry;
+            result = v%10 + result;
+            carry = v/10;
+        }
+        if (carry>0) result = 1 + result;
+
+        System.out.println(result);
     }
 }
